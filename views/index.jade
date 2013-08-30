@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h2= title
+  p Enter a URL of an article you'd like to share and a quote from that article.
+
+  form(name='get-link-form')
+    label(for='url') Path to article
+    input(type='url', id='url' name='url')
+    label(for='quote') Quote from article
+    textarea(id='quote' name='quote')
+    input(type='button', value='Get URL', onclick='getLink()')
