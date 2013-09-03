@@ -1,0 +1,15 @@
+{
+  "name": "Highlighter",
+  "description": "Shareable highlights for chrome.",
+  "version": "0.1",
+  "minimum_chrome_version": "16.0.884",
+  "background": {
+    "scripts": ["content_scripts.js"]
+  },
+  "permissions": [
+    "contextMenus",
+    "background",
+    "tabs"
+  ],
+  "manifest_version": 2
+}
