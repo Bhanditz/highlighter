@@ -1,3 +1,17 @@
+//debugging
+var console = chrome.extension.getBackgroundPage().console
+
+chrome.contextMenus.create({
+  title: 'Share a highlight of this!',
+  contexts: ['all'],
+  onclick: highlightCb
+});
+
+function highlightCb(info, tab) {
+  var link = makeLink(info.pageUrl, info.selectionText.trim());
+  prompt('Here\'s a link to your highlight for sharing!', link);
+}
+
 function makeLink(url, highlighted) {
   var link = 'http://highlighter-io.herokuapp.com/q?';
   link += 'u=' + encodeURIComponent(url);
@@ -11,15 +25,4 @@ function makeLink(url, highlighted) {
     link += '&s=' + encodeURIComponent(highlighted);
   }
   return link;
-}
-
-function getLink() {
-  url = document.forms['get-link-form']['url'].value;
-  quote = document.forms['get-link-form']['quote'].value;
-  if (!(url && quote)) {
-    alert('your form is bad');
-  } else {
-    link = makeLink(url, quote);
-    prompt('Here\'s a link to your highlight for sharing!', link);
-  }
 }

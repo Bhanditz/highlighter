@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h2= title
+  h1= title
   p Enter a URL of an article you'd like to share and a quote from that article.
 
   form(name='get-link-form')
@@ -10,3 +10,9 @@ block content
     label(for='quote') Quote from article
     textarea(id='quote' name='quote')
     input(type='button', value='Get URL', onclick='getLink()')
+
+  h2 Known Bugs
+  ul
+    li Does not work a highlight that contains formatted text or links in it
+    li Does not work with dynamic pages that need to make ajax calls
+    li Does not work with stack overflow (policy against iframes)
