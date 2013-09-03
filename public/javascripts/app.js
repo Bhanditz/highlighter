@@ -14,8 +14,8 @@ function makeLink(url, highlighted) {
 }
 
 function getLink() {
-  url = document.forms['get-link-form']['url'].value;
-  quote = document.forms['get-link-form']['quote'].value;
+  url = document.forms['get-link-form']['url'].value.trim();
+  quote = document.forms['get-link-form']['quote'].value.trim();
   if (!(url && quote)) {
     alert('your form is bad');
   } else {
